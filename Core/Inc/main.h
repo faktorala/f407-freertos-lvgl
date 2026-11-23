@@ -77,6 +77,8 @@ void Error_Handler(void);
 #define TP_RST_GPIO_Port GPIOB
 #define TP_SDA_Pin GPIO_PIN_2
 #define TP_SDA_GPIO_Port GPIOB
+#define DHT11_Pin GPIO_PIN_10
+#define DHT11_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 

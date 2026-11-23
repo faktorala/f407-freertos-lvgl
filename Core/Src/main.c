@@ -23,6 +23,7 @@
 #include "rtc.h"
 #include "spi.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -101,13 +102,14 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM3_Init();
   MX_RTC_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   /* ===== wiring check with a multimeter: pins toggle for the first 20 s =====
      The five LCD signals toggle together at 1 Hz, so every one of them should
-     measure about 1.6 V DC at the LCD connector.  A pin stuck at 0 V or 3.3 V
+     measure about 1.6 V DC at the LCD connector.  A pin stuck at 0 V or 3.3 V 
      means that track is open, shorted, or wired to a different MCU pin.
      Set LCD_PINWALK_TEST to 0 to skip this check. */
 #define LCD_PINWALK_TEST 0

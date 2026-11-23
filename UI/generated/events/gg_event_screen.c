@@ -17,7 +17,7 @@
  *
  * Tool            : GUI Guider
  * Version         : 2.0.1
- * Generated on    : 2026/11/12
+ * Generated on    : 2026/11/23
  * ------------------------------------------------------------------------------
  */
 
@@ -35,6 +35,19 @@ static void screen_event_handler(lv_event_t * e)
             lv_indev_t * indev = lv_event_get_indev(e);
             if(indev != NULL) {
                 switch(lv_indev_get_gesture_dir(indev)) {
+                    case LV_DIR_LEFT: {
+                        gg_screen_load_cfg_t cfg = {
+                            .scr       = &ui->screen_data.screen,
+                            .setup_fn  = setup_screen_data,
+                            .anim_type = LV_SCREEN_LOAD_ANIM_MOVE_LEFT,
+                            .time      = 100,
+                            .delay     = 0,
+                            .auto_del  = false,
+                        };
+                        gg_load_screen_animation(ui, &cfg);
+
+                        break;
+                    }
                     case LV_DIR_TOP: {
                         gg_screen_load_cfg_t cfg = {
                             .scr       = &ui->screen_1.screen,
