@@ -29,6 +29,7 @@
 #include "dht11.h"
 #include "data.h"
 #include "print.h"
+#include "w25q64.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -87,6 +88,20 @@ void GetStartTask(void *argument);
 void ShowStartTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/* Hook prototypes */
+void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName);
+
+/* USER CODE BEGIN 4 */
+void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName)
+{
+  __disable_irq();
+    for (;;) { }  
+   /* Run time stack overflow checking is performed if
+   configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
+   called if a stack overflow is detected. */
+}
+/* USER CODE END 4 */
 
 /**
   * @brief  FreeRTOS initialization
@@ -171,7 +186,16 @@ void GetStartTask(void *argument)
   /* USER CODE BEGIN GetStartTask */
   DHT11_Init();
   My_msg_t dht_msg = {.sensor = DHT11};
-  
+  if (W25Q64_Init() != W25Q64_OK) {
+    my_printf("W25Q64 not found, id=0x%06X\r\n", W25Q64_ReadJedecID());
+    
+  } else {
+    my_printf("W25Q64 ok, id=0x%06X, cap=%u KB\r\n",
+              W25Q64_ReadJedecID(), W25Q64_GetCapacity() / 1024U);
+    uint8_t back[30];
+    W25Q64_Read(0x000000, back, sizeof(back));
+    my_printf("data : %s", back);
+  }
   /* Infinite loop */
   for(;;)
   {

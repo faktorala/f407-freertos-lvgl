@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../BSP/CST816;../BSP/IIC;../SYSTEM;../Middlewares/LVGL/lvgl;../Middlewares/LVGL;../Middlewares/LVGL/lvgl/examples/porting;../BSP/LCD;../UI/generated;../UI/custom;../BSP/rtc_port;../BSP/DHT11;..\BSP\print;..\APP</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../BSP/CST816;../BSP/IIC;../SYSTEM;../Middlewares/LVGL/lvgl;../Middlewares/LVGL;../Middlewares/LVGL/lvgl/examples/porting;../BSP/LCD;../UI/generated;../UI/custom;../BSP/rtc_port;../BSP/DHT11;../BSP/print;../BSP/W25Q64;../APP</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1112,6 +1112,11 @@
               <FileName>print.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\print\print.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25q64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\W25Q64\w25q64.c</FilePath>
             </File>
           </Files>
         </Group>

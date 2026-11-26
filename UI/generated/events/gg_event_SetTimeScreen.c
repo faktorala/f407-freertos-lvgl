@@ -47,8 +47,7 @@ static void container_1_button_1_event_handler(lv_event_t * e)
             uint32_t min  = lv_roller_get_selected(ui->SetTimeScreen.container_1_roller_min);
             uint32_t sec  = lv_roller_get_selected(ui->SetTimeScreen.container_1_roller_sec);
 
-            // 2) 写到表盘 screen 的三�? label 上（两位补零）�?
-            //    LVGL 内建 sprintf �?�? %02u（lv_sprintf_builtin.c �? FLAGS_ZEROPAD）�?
+         
             lv_label_set_text_fmt(ui->screen.container_1_hour, "%02u", (unsigned)hour);
             lv_label_set_text_fmt(ui->screen.container_1_min,  "%02u", (unsigned)min);
             lv_label_set_text_fmt(ui->screen.container_1_sec,  "%02u", (unsigned)sec);

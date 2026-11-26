@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define W25Q64_CS_Pin GPIO_PIN_1
+#define W25Q64_CS_GPIO_Port GPIOC
 #define TP_INT_Pin GPIO_PIN_1
 #define TP_INT_GPIO_Port GPIOA
 #define LCD_CS_Pin GPIO_PIN_2
